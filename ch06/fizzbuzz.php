@@ -2,7 +2,8 @@
 
 /* GENERATORS are similar to iterators but simpler. They look like functions, but behave like iterators. 
     The difference in how you write a generator versus a funciton is that instead of using the "return" keyword,
-    you use the "yield" keyword. This is typically inside a loop, because you will use it to return multiple values. */
+    you use the "yield" keyword. This is typically inside a loop, because you will use it to return multiple values. 
+    The most valuable thing about generators is that GENERATORS KEEP STATE. */
 
 function fizzbuzz($start, $end) {
   $current = $start;
