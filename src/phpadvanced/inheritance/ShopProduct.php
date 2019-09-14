@@ -2,8 +2,14 @@
 
 namespace phpbox\phpadvanced\inheritance;
 
-class ShopProduct
+use phpbox\phpadvanced\inheritance\PriceUtilities;
+
+class ShopProduct implements Chargeable
 {
+  use PriceUtilities;
+  const AVAILABLE = 0;
+  const OUT_OF_STOCK = 1;
+
   private $title;
   private $producerMainName;
   private $producerFirstName;
@@ -42,9 +48,9 @@ class ShopProduct
   {
     return $this->title;
   }
-  public function getPrice()
+  public function getPrice(): float
   {
-    return ($this->price - $this->discount);
+    return $this->price;
   }
   public function getProducer()
   {

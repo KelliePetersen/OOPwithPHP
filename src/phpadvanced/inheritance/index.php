@@ -19,7 +19,10 @@ $product2 = new CdProduct(
   60.33
 );
 
+print ShopProduct::AVAILABLE . "\n";
 print "author: {$product1->getProducer()} \n";
 print "artist: {$product2->getProducer()} \n";
+$p = new ShopProduct();
+print $p->calculateTax(100) . "\n";
 
 ?>
