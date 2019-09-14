@@ -82,3 +82,54 @@ public function __get(string $property) {
   }
 }
 ```
+
+## Destructor Methods
+The __construct() method is invoked when an object is instantiated. The __destruct() method is invoked just before 
+an object is garbage-collectedy. You can use this method to perform any final cleaning up that might be necessary.  
+
+For example, a class that saves itself to a database when its data is deleted.  
+The __destruct() method is invoked  whenever a Person object is removed from memory.  
+This happens with the unset() function or when no further references to the object exist in the process.  
+```
+class Person {
+  protected $name;
+  private $age;
+  private $id;
+  public function __construct(string $name, int $age) {
+    $this->name = $name;
+    $this->age = $age;
+  }
+  public function __destruct() {
+    if (! empty($this->id)) {
+      // save Person data
+    }
+  }
+}
+$person = new Person("bob", 44);
+$person->setId(343);
+unset($person);
+```
+These are also referred to as magic methods. Be careful with magic.
+
+## Copying Objects with __clone()
+Cloning objects without __clone can be problematic. You can end up with multiple objects referencing the same data,
+and updates in one object effects the others. Add __clone() to an object's class to overwrite what is cloned.
+```
+class Person {
+  ...
+  public function __clone() {
+   $this->id = 0;
+  }
+}
+$person = new Person("bob", 44);
+$person->setId(343);
+$person2 = clone $person;
+// $person2 : {name: bob, age: 44, id: 0}
+```
+A shallow copy ensures that primitive properties are copied from the old object to the new. Object
+properties, though, are copied by reference. If the object is something like a bank account, you obviously don't
+want the second person to reference it. To avoid this, clone it explicitly in the __clone() method.
+`function __clone() { $this->account = clone $this->account; }`
+
+## String Values for Objects
+Use the __toString() method to control how your objects represent themselves when printed. 
