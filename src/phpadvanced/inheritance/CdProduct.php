@@ -4,14 +4,13 @@ namespace phpbox\phpadvanced\inheritance;
 
 class CdProduct extends ShopProduct
 {
-  public $playLength;
-
+  private $playLength;
   public function __construct(
     string $title,
     string $firstName,
     string $mainName,
-    float $price,
-    int $playLength
+    float  $price,
+    int    $playLength
   ) {
     parent::__construct(
       $title,
@@ -21,14 +20,14 @@ class CdProduct extends ShopProduct
     );
     $this->playLength = $playLength;
   }
-
   public function getPlayLength()
   {
     return $this->playLength;
   }
   public function getSummaryLine()
   {
-    $base  = parent::getSummaryLine();
+    $base  = "{$this->title} ( {$this->producerMainName}, ";
+    $base .= "{$this->producerFirstName} )";
     $base .= ": playing time - {$this->playLength}";
     return $base;
   }

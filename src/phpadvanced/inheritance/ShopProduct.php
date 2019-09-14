@@ -4,10 +4,12 @@ namespace phpbox\phpadvanced\inheritance;
 
 class ShopProduct
 {
-  public $title;
-  public $producerMainName;
-  public $producerFirstName;
-  public $price;
+  private $title;
+  private $producerMainName;
+  private $producerFirstName;
+  protected $price;
+  private $discount = 0;
+
   public function __construct(
     string $title,
     string $firstName,
@@ -18,6 +20,31 @@ class ShopProduct
     $this->producerFirstName = $firstName;
     $this->producerMainName  = $mainName;
     $this->price             = $price;
+  }
+  
+  public function getProducerFirstName()
+  {
+    return $this->producerFirstName;
+  }
+  public function getProducerMainName()
+  {
+    return $this->producerMainName;
+  }
+  public function setDiscount($num)
+  {
+    $this->discount = $num;
+  }
+  public function getDiscount()
+  {
+    return $this->discount;
+  }
+  public function getTitle()
+  {
+    return $this->title;
+  }
+  public function getPrice()
+  {
+    return ($this->price - $this->discount);
   }
   public function getProducer()
   {
