@@ -1,0 +1,24 @@
+{
+  "name": "sandbox/phpbox",
+  "description": "OOP Playground",
+  "license": "AGPL-3.0-only",
+  "require": {
+    "php": "^7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  },
+  "autoload": {
+    "psr-4": {
+      "phpbox\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "phpbox\\": [
+        "src/",
+        "tests/"
+      ]
+    }
+  }
+}
