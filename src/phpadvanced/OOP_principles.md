@@ -17,7 +17,8 @@ For example, if you're managing email, you should have separate classes for vali
 ## Coupling
 Coupling is the principle of "separation of concerns". This means that one object doesn't directly change or 
 modify the state or behavior of another object. Independent objects are called loosely coupled, while objects
-that rely on other objects or can modify the states of other objects are said to be tightly coupled. 
+that rely on other objects or can modify the states of other objects are said to be tightly coupled.  
+An example of decoupling is provided in the registration component of the Composition example. 
 
 ## Orthogonality
 Orthogonality is the property that means "Changing A does not change B". An example of an orthogonal system 

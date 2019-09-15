@@ -31,4 +31,24 @@ foreach ($lessons as $lesson) {
   print "Charge type: {$lesson->chargeType()}\n";
 }
 
+/*
+DECOUPLING EXAMPLE (ch08)
+
+The Lesson system must incorporate a registration component to add new lessons to the system. 
+An administrator should be notified when a lesson is added, but they can't agree on email, text, or
+some other compromise. They want to be notified of all sorts of things, so that a change to
+the notification mode in one place will mean a similar alteration in many other places.
+
+Refer to RegistrationMgr.php
+The knowledge of which Notifier should be used has been focused in the Notifier::getNotifier() method.
+I could send notifier messages from a hundred different parts of my
+system, and a change in Notifier would only have to be made in that one method.
+*/
+
+$lessons1 = new Seminar(4, new TimedCostStrategy());
+$lessons2 = new Lecture(4, new FixedCostStrategy());
+$mgr = new RegistrationMgr();
+$mgr->register($lessons1);
+$mgr->register($lessons2);
+
 ?>
