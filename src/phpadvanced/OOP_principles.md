@@ -7,6 +7,7 @@ Encapsulation = hiding data and functionality from a client
 Abstraction = hide the internal implementation details  
 Encapsulation vs Abstraction = Abstraction is about design (e.g. what the object does, not how it does it), 
 while Encapsulation is about hiding internal details for the purpose of code.  
+Composition = Instead of inheritance, classes contain instances of other classes  
 
 ## Cohesion
 Cohesion is the extent to which proximate procedures are related to one another.  
@@ -40,3 +41,12 @@ Abstraction is like encapsulation; both hide complexity, but the difference is *
 Abstraction is design-focused. For example, when you're talking about what an object will and won't do, you
 are focusing on the object's design, not it's code. Abstraction hides code so that you focus on what the object 
 does instead of how it does it. 
+
+## Composition
+Composition is the principle that classes should achieve polymorphic behavior and code reuse by their 
+composition (by containing instances of other classes that implement the desired functionality) rather than 
+inheritance from a base or parent class.  
+
+The benefits of Composition are reusing existing code, flexibility and designing clean APIs via delegation.
+The disadvantage is that relationships are harder to discern than in inheritance models, due to them
+lacking the predictibility and containing more types. 
