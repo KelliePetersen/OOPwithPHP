@@ -1,13 +1,10 @@
-## Important Notes
-•	 A factory is a class or method with responsibility for generating objects.
-
 ## Summary
-•	 The Singleton pattern: A special class that generates one—and only one—object instance  
-•	 The Factory Method pattern: Building an inheritance hierarchy of creator classes  
-•	 The Abstract Factory pattern: Grouping the creation of functionally related products  
-•	 The Prototype pattern: Using clone to generate objects  
-•	 The Service Locator pattern: Asking your system for objects  
-•	 The Dependency Injection pattern: Letting your system give you objects  
+•	 Singleton - A special class that generates one, and only one, object instance  
+•	 Factory Method - Building an inheritance hierarchy of creator classes  
+•	 Abstract Factory - Grouping the creation of functionally related products  
+•	 Prototype - Using clone to generate objects  
+•	 Service Locator - Asking your system for objects  
+•	 Dependency Injection - Letting your system give you objects  
 
 ## Strategy Pattern
 The Strategy pattern was used in the Composition example. The Strategy Pattern is a behavioral software design pattern 
@@ -43,3 +40,26 @@ is provided, it is left to creator child classes to perform the instantiation. T
 instantiates a parallel product child class.
 
 ![Factory Method](/images/Factory_Method.png)
+
+Notice that the creator classes mirror the product hierarchy. This is a common consequence of the Factory
+Method pattern and disliked by some as a special kind of code duplication. Another issue is the possibility
+that the pattern could encourage unnecessary subclassing. If your only reason for subclassing a creator is
+to deploy the Factory Method pattern, you may need to think again.
+
+## Abstract Factory Pattern
+In large applications, you may need factories that produce related sets of classes. The Abstract Factory
+pattern addresses this problem.
+
+Rather than create separate methods for each Factory Method, you can create a single make() method
+that uses a flag argument to determine which object to return.
+In using a factory method, I define a clear interface and force all concrete factory objects to honor it.
+In using a single make() method, I must remember to support all product objects in all the concrete creators.
+I also introduce parallel conditionals, as each concrete creator must implement the same flag tests. A client
+class cannot be certain that concrete creators generate all the products because the internals of make() are a
+matter of choice in each case.
+On the other hand, I can build more flexible creators. The base creator class can provide a make()
+method that guarantees a default implementation of each product family. Concrete children could then
+modify this behavior selectively. It would be up to implementing creator classes to call the default make()
+method after providing their own implementation.
+
+![Abstract Factory](/images/Abstract_Factory.png)
