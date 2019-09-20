@@ -1,3 +1,16 @@
+# Design Patterns
+A design pattern provides a general reusable solution for common problems in software design. The patterns typically show relationships and interactions between classes or objects. 
+The idea is to speed up the development process by providing well tested, proven development/design paradigm. Design pattern represents an idea, not a particular implementation. 
+By using design patterns you can make your code more flexible, reusable and maintainable.
+
+## Types of Design Patterns
+**Creational** - Class instantiation or object creation. Class-creation patterns use inheritance in the instantiation process, object-creation patterns use delegation. 
+Creational patterns are the Singleton, Factory Method, Abstract Factory, Prototype, Builder, and Object Pool.  
+**Structural** - Organizing different classes and objects to form larger structures and provide new functionality.
+Structural patterns are Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Private Class Data, and Proxy.  
+**Behavioral** - Identifying common communication patterns between objects and realize these patterns. 
+Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator, Mediator, Memento, Null Object, Observer, State, Strategy, Template method, and Visitor.  
+
 ## Summary
 •	 Singleton - A special class that generates one, and only one, object instance  
 •	 Factory Method - Building an inheritance hierarchy of creator classes  
