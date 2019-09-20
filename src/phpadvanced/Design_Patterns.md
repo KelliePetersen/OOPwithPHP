@@ -33,3 +33,13 @@ But when a Singleton is used, the dependency is hidden away inside a method and 
 This can make it harder to trace the relationships within a system. Singleton classes should be deployed sparingly.
 
 ## Factory Method Pattern
+The Factory Method pattern addresses the problem of how to create object instances when your code focuses on abstract types.
+Its intent is to define an interface for creating an object, but let subclasses decide which class to instantiate.
+Factory Method lets a class defer instantiation to subclasses.
+
+The Factory Method pattern splits creator classes from the products they are designed to generate. The
+creator is a factory class that defines a method for generating a product object. If no default implementation
+is provided, it is left to creator child classes to perform the instantiation. Typically, each creator subclass
+instantiates a parallel product child class.
+
+![Factory Method](/images/Factory_Method.png)
