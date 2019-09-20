@@ -92,3 +92,10 @@ One way of avoiding this dependency is to use PHP’s clone keyword to duplicate
 products. The concrete product classes themselves then become the basis of their own generation. This is
 the Prototype pattern. It enables you to replace inheritance with *composition*. This in turn promotes runtime
 flexibility and reduces the number of classes you must create.
+
+## Service Locator Pattern
+The service locator pattern encapsulates the processes involved in obtaining a service with a strong abstraction layer. 
+This pattern uses a central registry (service locator) which on request returns the information necessary to perform a certain task.
+The ServiceLocator is responsible for returning instances of services when they are requested for by the service consumers or the service clients. 
+
+![Service Locator](/images/Service_Locator.jpg)
