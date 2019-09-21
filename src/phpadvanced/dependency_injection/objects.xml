@@ -1,0 +1,10 @@
+<objects>
+  <class name="\src\phpadvanced\prototype\TerrainFactory">
+    <arg num="0" inst="\src\phpadvanced\prototype\EarthSea" />
+    <arg num="1" inst="\src\phpadvanced\prototype\MarsPlains" />
+    <arg num="2" inst="\src\phpadvanced\prototype\EarthForest" />
+  </class>
+  <class name="\src\phpadvanced\dependency_injection\AppointmentMaker">
+    <arg num="0" inst="\src\phpadvanced\abstract_factory\BloggsApptEncoder" />
+  </class>
+</objects>

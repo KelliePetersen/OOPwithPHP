@@ -99,3 +99,17 @@ This pattern uses a central registry (service locator) which on request returns 
 The ServiceLocator is responsible for returning instances of services when they are requested for by the service consumers or the service clients. 
 
 ![Service Locator](/images/Service_Locator.jpg)
+
+## Dependency Injection Pattern
+Much of our code (so far) calls out to factories. This model is known as the Service Locator pattern. 
+A method delegates responsibility to a provider which it trusts to find and serve up an instance
+of the desired type.  
+The Prototype example inverts this; it simply expects the instantiating code to
+provide implementations at call time. This is simply a matter of requiring types in a
+constructor’s signature, instead of creating them directly within the method. A variation on this is to provide
+setter methods, so that clients can pass in objects before invoking a method that uses them.  
+
+Dependency Injection offers purity, but it requires another kind of embedding. You must buy in to the
+magic of the assembler. If you are already working within a framework which offers this functionality, there is
+no reason not to avail yourself of it. On the other hand, if you are rolling your own, or using components from various
+frameworks, you may wish to keep things simple and use the Service Locator pattern at the cost of some elegance.
