@@ -8,7 +8,9 @@ The Open/Closed Principle is one of five design principles for object-oriented s
 * Dependency Inversion
 
 ## SUMMARY
-**Open/Closed** - Software entities allow their behaviour to be extended without modifying their source code  
+**Single Responsibility** - Each class has a single responsibility.  
+**Open/Closed** - Software entities allow their behaviour to be extended without modifying their source code.  
+**Liskov Substitution** - Objects of a superclass shall be replaceable with objects of its subclasses.
 
 ## Single Responsibility Principle
 *A class should have one, and only one, reason to change.*  
@@ -29,3 +31,17 @@ The main benefit of this approach is that an interface introduces an additional 
 loose coupling. The implementations of an interface are independent of each other and don’t need to share any code.  
 
 An example can be found in the [SOLID folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/openclosed.php)  
+
+## Liskov Substitution Principle
+It extends the Open/Closed Principle by focusing on the behavior of a superclass and its subtypes. 
+Objects of a superclass shall be replaceable with objects of its subclasses without causing negative side effects.
+That requires the objects of your subclasses to behave in the same way as the objects of your superclass.  
+
+This can be achieved with a few rules:
+* An overridden method of a subclass needs to accept the same input parameter values as the method of the superclass.
+  * You can implement less restrictive validation rules, but not stricter rules, as this could result in an exception.
+* The return value of an overridden method needs to comply with the same rules as the return value of the method of the superclass. 
+  * You can implement less restrictive validation rules, but only implement stricter rules by returning a specific subclass of the defined return value, or by returning a subset of the valid return values of the superclass.
+* Implement your own checks via code reviews and test cases. 
+
+An example can be found in the [SOLID folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/liskovsubstitution.php)  
