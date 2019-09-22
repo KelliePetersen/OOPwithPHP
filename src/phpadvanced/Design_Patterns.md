@@ -14,6 +14,7 @@ Structural patterns are Adapter, Bridge, Composite, Decorator, Facade, Flyweight
 Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator, Mediator, Memento, Null Object, Observer, State, Strategy, Template method, and Visitor.  
 
 ## Summary
+•	 **Strategy** - Uses composition to delegate strategy to a strategy class, who is in charge of logic
 •	 **Singleton** - A special class that generates one, and only one, object instance  
 •	 **Factory Method** - Building an inheritance hierarchy of creator classes  
 •	 **Abstract Factory** - Grouping the creation of functionally related products  
@@ -22,15 +23,46 @@ Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator,
 •	 **Dependency Injection** - Letting your system give you objects  
 
 ## Strategy Pattern
-The Strategy pattern was used in the Composition example. The Strategy Pattern is a behavioral software design pattern 
-that enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, code receives 
-run-time instructions as to which in a family of algorithms to use.  
 
-For instance, a class that performs validation on incoming data may use the strategy pattern to select a validation 
-algorithm depending on the type of data, the source of the data, user choice, or other discriminating factors. These 
+### Intent
+Capture the abstraction in an interface, bury implementation details in derived classes.  
+
+### Description
+The Strategy pattern uses composition - which is calling instances' of other
+classes instead of relying on inheritance. For example, Class A may accept parameters and delegate to class B via a
+method in Class A, and Class B decides the behavior.  
+
+The Strategy Pattern enables selecting an algorithm at runtime. Instead of implementing a single algorithm directly, 
+code receives run-time instructions as to which in a family of algorithms to use.  
+
+Clients can then couple themselves to an interface, and not be impacted by changes to the derived classes, or by
+additional derived classes being added.  
+
+![Strategy](/images/Strategy.png)
+
+This minimizes coupling. The client is coupled only to an abstraction, which is known as "abstract coupling" - 
+"Program to an interface, not an implementation".
+
+### Example
+1. A TransportationToAirport class where the travel strategy is delegated to Strategy. The
+strategy class handles all the possible options and varying factors.
+
+![Strategy_Example](/images/Strategy_Example.png)
+
+2. A class that performs validation on data selects a validation 
+algorithm depending on the type of data, the source, and other factors. These 
 factors are not known until run-time and may require radically different validation to be performed. The validation 
 algorithms (strategies), encapsulated separately from the validating object, may be used by other validating objects 
 in different areas of the system (or even different systems) without code duplication.  
+
+3. Refer to the Composition folder for a code example.  
+
+### Implementation
+1. Identify an algorithm (i.e. a behavior) that the client would prefer to access through a "flex point".
+2. Specify the signature for that algorithm in an interface.
+3. Bury the alternative implementation details in derived classes.
+4. Clients of the algorithm couple themselves to the interface.
+
 
 ## Singleton Pattern
 Singletons should be globally accessible and have only ONE instance.
