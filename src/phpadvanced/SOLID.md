@@ -10,7 +10,8 @@ The Open/Closed Principle is one of five design principles for object-oriented s
 ## SUMMARY
 **Single Responsibility** - Each class has a single responsibility.  
 **Open/Closed** - Software entities allow their behaviour to be extended without modifying their source code.  
-**Liskov Substitution** - Objects of a superclass shall be replaceable with objects of its subclasses.
+**Liskov Substitution** - Objects of a superclass shall be replaceable with objects of its subclasses.  
+**Interface Segregation** - Code should not be forced to depend on methods that it doesn't use.  
 
 ## Single Responsibility Principle
 *A class should have one, and only one, reason to change.*  
@@ -45,3 +46,15 @@ This can be achieved with a few rules:
 * Implement your own checks via code reviews and test cases. 
 
 An example can be found in the [SOLID folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/liskovsubstitution.php)  
+
+## Interface Segregation Principle
+*Clients should not be forced to depend upon interfaces that they do not use.*  
+Code should not be forced to depend on methods that it doesn't use. 
+The goal is to reduce the side effects and frequency of required changes by splitting the software into multiple, independent parts.  
+
+Some examples of code that violate this principle are:
+* Children that inherit methods from parents that they don't need
+* Classes that implement interfaces they don't use
+
+Some ways to avoid violating this principle are:
+* If a class needs to access *some* methods/attributes of another class, do it via other methods such as composition, delegation, interfaces or traits. 
