@@ -58,3 +58,12 @@ Some examples of code that violate this principle are:
 
 Some ways to avoid violating this principle are:
 * If a class needs to access *some* methods/attributes of another class, do it via other methods such as composition, delegation, interfaces or traits. 
+
+## Dependency Inversion Principle
+High-level modules, which provide complex logic, should be easily reusable and unaffected by changes in low-level modules, which provide utility features. 
+To achieve that, you need to introduce an abstraction that decouples the high-level and low-level modules from each other.  
+
+Robert C. Martin’s definition of the Dependency Inversion Principle consists of two parts:
+* High-level modules should not depend on low-level modules. **Both** should depend on abstractions.
+* Abstractions should not depend on details. Details should depend on abstractions.
+
