@@ -40,7 +40,10 @@ print "\n";
 CORRECT METHOD
 The above functions are now their own classes that inherit from the OrderReport class. 
 When changes are to be made to Invoice/BOL, the OrderReport class doesn't need to be touched. 
-This means that the parent class is closed. This structure also follows the Single Responsibility principle.
+This means that the parent class is closed. 
+
+This structure also follows the Single Responsibility principle. Instead of a single class having
+multiple functions, each class serves a specific purpose by splitting the functions into classes, via inheritance. 
 */
 
 class OrderReport {

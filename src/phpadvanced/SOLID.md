@@ -8,10 +8,17 @@ The Open/Closed Principle is one of five design principles for object-oriented s
 * Dependency Inversion
 
 ## SUMMARY
-Open-Closed = software entities allow their behaviour to be extended without modifying their source code  
+**Open/Closed** - Software entities allow their behaviour to be extended without modifying their source code  
+
+## Single Responsibility Principle
+*A class should have one, and only one, reason to change.*  
+Each class should have a single responsibility, so that software is easier to implement and side-effects are less likely.
+You need to change your class as soon as one of its responsibilities changes. That is obviously more often than you would need to change it if it had only one responsibility.
+
+An example can be found in the [Open/Closed Example](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/openclosed.php)  
 
 ## Open/Closed Principle
-Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.
+*Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.*  
 This means that an entity can allow its behaviour to be extended without modifying its source code.  
 
 The modern approach is polymorphic open/closed principle - use interfaces instead of superclasses to allow
