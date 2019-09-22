@@ -14,7 +14,7 @@ Structural patterns are Adapter, Bridge, Composite, Decorator, Facade, Flyweight
 Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator, Mediator, Memento, Null Object, Observer, State, Strategy, Template method, and Visitor.  
 
 ## Summary
-•	 **Strategy** - Uses composition to delegate strategy to a strategy class, who is in charge of logic
+•	 **Strategy** - Uses composition to delegate strategy to a strategy class, who is in charge of logic  
 •	 **Singleton** - A special class that generates one, and only one, object instance  
 •	 **Factory Method** - Building an inheritance hierarchy of creator classes  
 •	 **Abstract Factory** - Grouping the creation of functionally related products  
