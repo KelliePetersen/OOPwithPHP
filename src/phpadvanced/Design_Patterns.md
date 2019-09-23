@@ -18,7 +18,7 @@ Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator,
 •	 **Singleton** - A special class that generates one, and only one, object instance  
 •	 **Factory Method** - Building an inheritance hierarchy of creator classes  
 •	 **Abstract Factory** - Grouping the creation of functionally related products  
-•	 **Prototype** - Using clone to generate objects, uses composition 
+•	 **Prototype** - Using clone to generate objects, uses composition  
 •	 **Service Locator** - Asking your system for objects  
 •	 **Dependency Injection** - Letting your system give you objects  
 
@@ -55,7 +55,7 @@ factors are not known until run-time and may require radically different validat
 algorithms (strategies), encapsulated separately from the validating object, may be used by other validating objects 
 in different areas of the system (or even different systems) without code duplication.  
 
-3. Refer to the Composition folder for a code example.  
+3. Refer to the [Composition folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/composition) for a code example.  
 
 ### Implementation
 1. Identify an algorithm (i.e. a behavior) that the client would prefer to access through a "flex point".
@@ -65,16 +65,47 @@ in different areas of the system (or even different systems) without code duplic
 
 
 ## Singleton Pattern
-Singletons should be globally accessible and have only ONE instance.
-Only one instance of the class is created 
+
+### Intent
+* Ensure a class has only one instance, and provide a global point of access to it.
+* Encapsulated "just-in-time initialization" or "initialization on first use".
+
+### Description
+Singletons should be globally accessible and have only ONE instance. Only one instance of the class is created 
 in the complete execution of a program or project. It is used where only a single instance of a class is required to 
 control the action throughout the execution. A singleton class should never have multiple instances. 
 Singleton classes are used for logging, driver objects, caching and thread pool, database connections.
 
+
+### Implementation
+Singleton should be considered only if all three of the following criteria are satisfied:
+* Ownership of the single instance cannot be reasonably assigned
+* Lazy initialization is desirable
+* Global access is not otherwise provided for
+
+Make the class of the single instance object responsible for creation, initialization, access, and enforcement. Declare the instance as a private static data member. 
+Provide a public static member function that encapsulates all initialization code, and provides access to the instance. 
+The client calls the accessor function (using the class name and scope resolution operator) whenever a reference to the single instance is required.
+1. Define a private static attribute in the "single instance" class.
+2. Define a public static accessor function in the class.
+3. Do "lazy initialization" (creation on first use) in the accessor function.
+4. Define all constructors to be protected or private.
+5. Clients may only use the accessor function to manipulate the Singleton.
+
+### Disadvantages
 Because Singletons can be accessed from anywhere in a system, they can create dependencies that are hard to debug. 
 Change a Singleton, and classes that use it may be affected. Dependencies are not a problem in themselves. 
 But when a Singleton is used, the dependency is hidden away inside a method and not declared in its signature. 
 This can make it harder to trace the relationships within a system. Singleton classes should be deployed sparingly.
+
+### Example
+The office of the President of the United States is a Singleton. The United States Constitution specifies the means by which a president is elected, 
+limits the term of office, and defines the order of succession. As a result, there can be at most one active president at any given time. Regardless 
+of the personal identity of the active president, the title, "The President of the United States" is a global point of access that identifies the person in the office.
+
+![Singleton_Example](/images/Singleton_Example.png)
+
+Refer to the [Singleton folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/singleton) for a code example.  
 
 ## Factory Method Pattern
 The Factory Method pattern addresses the problem of how to create object instances when your code focuses on abstract types.
