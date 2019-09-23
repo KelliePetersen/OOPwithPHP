@@ -90,7 +90,7 @@ of the personal identity of the active president, the title, "The President of t
 
 ![Singleton_Example](/images/Singleton_Example.png)
 
-Refer to the [Singleton folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/singleton) for a code example.  
+Refer to the [Singleton folder](singleton) for a code example.  
 
 ### Implementation
 Singleton should be considered only if all three of the following criteria are satisfied:
@@ -138,7 +138,7 @@ The Factory Method defines an interface for creating objects, but lets subclasse
 
 ![Factory_Example](/images/Factory_Example.png)
 
-Refer to the [factory folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/factory) for a code example.  
+Refer to the [factory folder](factory) for a code example.  
 
 ### Implementation
 1. If you have an inheritance hierarchy that exercises polymorphism, consider adding a polymorphic creation capability by defining a static factory method in the base class.
