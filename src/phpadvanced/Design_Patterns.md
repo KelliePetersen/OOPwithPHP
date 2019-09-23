@@ -22,6 +22,7 @@ Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator,
 •	 **Service Locator** - Asking your system for objects  
 •	 **Dependency Injection** - Letting your system give you objects  
 
+
 ## Strategy Pattern
 
 ### Intent
@@ -76,6 +77,20 @@ in the complete execution of a program or project. It is used where only a singl
 control the action throughout the execution. A singleton class should never have multiple instances. 
 Singleton classes are used for logging, driver objects, caching and thread pool, database connections.
 
+### Disadvantages
+Because Singletons can be accessed from anywhere in a system, they can create dependencies that are hard to debug. 
+Change a Singleton, and classes that use it may be affected. Dependencies are not a problem in themselves. 
+But when a Singleton is used, the dependency is hidden away inside a method and not declared in its signature. 
+This can make it harder to trace the relationships within a system. Singleton classes should be deployed sparingly.
+
+### Example
+The office of the President of the United States is a Singleton. The United States Constitution specifies the means by which a president is elected, 
+limits the term of office, and defines the order of succession. As a result, there can be at most one active president at any given time. Regardless 
+of the personal identity of the active president, the title, "The President of the United States" is a global point of access that identifies the person in the office.
+
+![Singleton_Example](/images/Singleton_Example.png)
+
+Refer to the [Singleton folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/singleton) for a code example.  
 
 ### Implementation
 Singleton should be considered only if all three of the following criteria are satisfied:
@@ -92,22 +107,16 @@ The client calls the accessor function (using the class name and scope resolutio
 4. Define all constructors to be protected or private.
 5. Clients may only use the accessor function to manipulate the Singleton.
 
-### Disadvantages
-Because Singletons can be accessed from anywhere in a system, they can create dependencies that are hard to debug. 
-Change a Singleton, and classes that use it may be affected. Dependencies are not a problem in themselves. 
-But when a Singleton is used, the dependency is hidden away inside a method and not declared in its signature. 
-This can make it harder to trace the relationships within a system. Singleton classes should be deployed sparingly.
-
-### Example
-The office of the President of the United States is a Singleton. The United States Constitution specifies the means by which a president is elected, 
-limits the term of office, and defines the order of succession. As a result, there can be at most one active president at any given time. Regardless 
-of the personal identity of the active president, the title, "The President of the United States" is a global point of access that identifies the person in the office.
-
-![Singleton_Example](/images/Singleton_Example.png)
-
-Refer to the [Singleton folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/singleton) for a code example.  
 
 ## Factory Method Pattern
+
+### Intent
+* Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+* Defining a "virtual" constructor.
+* The new operator considered harmful.
+
+### Description
+A framework needs to standardize the architectural model for a range of applications, but allow for individual applications to define their own domain objects and provide for their instantiation.
 The Factory Method pattern addresses the problem of how to create object instances when your code focuses on abstract types.
 Its intent is to define an interface for creating an object, but let subclasses decide which class to instantiate.
 Factory Method lets a class defer instantiation to subclasses.
@@ -123,6 +132,20 @@ Notice that the creator classes mirror the product hierarchy. This is a common c
 Method pattern and disliked by some as a special kind of code duplication. Another issue is the possibility
 that the pattern could encourage unnecessary subclassing. If your only reason for subclassing a creator is
 to deploy the Factory Method pattern, you may need to think again.
+
+### Example
+The Factory Method defines an interface for creating objects, but lets subclasses decide which classes to instantiate. Injection molding presses demonstrate this pattern. Manufacturers of plastic toys process plastic molding powder, and inject the plastic into molds of the desired shapes. The class of toy (car, action figure, etc.) is determined by the mold.
+
+![Factory_Example](/images/Factory_Example.png)
+
+Refer to the [factory folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/factory) for a code example.  
+
+### Implementation
+1. If you have an inheritance hierarchy that exercises polymorphism, consider adding a polymorphic creation capability by defining a static factory method in the base class.
+2. Design the arguments to the factory method. What qualities or characteristics are necessary and sufficient to identify the correct derived class to instantiate?
+3. Consider designing an internal "object pool" that will allow objects to be reused instead of created from scratch.
+4. Consider making all constructors private or protected.
+
 
 ## Abstract Factory Pattern
 In large applications, you may need factories that produce related sets of classes. The Abstract Factory
@@ -144,6 +167,7 @@ method after providing their own implementation.
 
 ![Abstract Factory](/images/Abstract_Factory.png)
 
+
 ## Prototype Pattern
 The emergence of parallel inheritance hierarchies can be a problem with the Factory Method pattern.
 This is a kind of coupling that makes some programmers uncomfortable. Every time you add a product
@@ -156,12 +180,14 @@ products. The concrete product classes themselves then become the basis of their
 the Prototype pattern. It enables you to replace inheritance with *composition*. This in turn promotes runtime
 flexibility and reduces the number of classes you must create.
 
+
 ## Service Locator Pattern
 The service locator pattern encapsulates the processes involved in obtaining a service with a strong abstraction layer. 
 This pattern uses a central registry (service locator) which on request returns the information necessary to perform a certain task.
 The ServiceLocator is responsible for returning instances of services when they are requested for by the service consumers or the service clients. 
 
 ![Service Locator](/images/Service_Locator.jpg)
+
 
 ## Dependency Injection Pattern
 Much of our code (so far) calls out to factories. This model is known as the Service Locator pattern. 
