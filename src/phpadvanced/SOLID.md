@@ -18,7 +18,7 @@ The Open/Closed Principle is one of five design principles for object-oriented s
 Each class should have a single responsibility, so that software is easier to implement and side-effects are less likely.
 You need to change your class as soon as one of its responsibilities changes. That is obviously more often than you would need to change it if it had only one responsibility.
 
-An example can be found in the [Open/Closed Example](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/openclosed.php)  
+An example can be found in the [Open/Closed Example](SOLID/openclosed.php)  
 
 ## Open/Closed Principle
 *Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification.*  
