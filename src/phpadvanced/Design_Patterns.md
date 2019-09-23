@@ -169,6 +169,13 @@ method after providing their own implementation.
 
 
 ## Prototype Pattern
+
+### Intent
+* Specify the kinds of objects to create using a prototypical instance, and create new objects by copying this prototype.
+* Co-opt one instance of a class for use as a breeder of all future instances.
+* The new operator considered harmful.
+
+### Description
 The emergence of parallel inheritance hierarchies can be a problem with the Factory Method pattern.
 This is a kind of coupling that makes some programmers uncomfortable. Every time you add a product
 family, you are forced to create an associated concrete creator (the BloggsCal encoders are matched by
