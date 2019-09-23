@@ -56,7 +56,7 @@ factors are not known until run-time and may require radically different validat
 algorithms (strategies), encapsulated separately from the validating object, may be used by other validating objects 
 in different areas of the system (or even different systems) without code duplication.  
 
-3. Refer to the [Composition folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/composition) for a code example.  
+3. Refer to the [Composition folder](composition) for a code example.  
 
 ### Implementation
 1. Identify an algorithm (i.e. a behavior) that the client would prefer to access through a "flex point".

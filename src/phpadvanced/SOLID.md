@@ -31,7 +31,7 @@ are closed for modifications, and you can provide new implementations to extend 
 The main benefit of this approach is that an interface introduces an additional level of abstraction which enables 
 loose coupling. The implementations of an interface are independent of each other and don’t need to share any code.  
 
-An example can be found in the [SOLID folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/openclosed.php)  
+An example can be found in the [SOLID folder](SOLID/openclosed.php)  
 
 ## Liskov Substitution Principle
 It extends the Open/Closed Principle by focusing on the behavior of a superclass and its subtypes. 
@@ -45,7 +45,7 @@ This can be achieved with a few rules:
   * You can implement less restrictive validation rules, but only implement stricter rules by returning a specific subclass of the defined return value, or by returning a subset of the valid return values of the superclass.
 * Implement your own checks via code reviews and test cases. 
 
-An example can be found in the [SOLID folder](https://github.com/KelliePetersen/phpsqlbook/blob/master/src/phpadvanced/SOLID/liskovsubstitution.php)  
+An example can be found in the [SOLID folder](SOLID/liskovsubstitution.php)  
 
 ## Interface Segregation Principle
 *Clients should not be forced to depend upon interfaces that they do not use.*  
