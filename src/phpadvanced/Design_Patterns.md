@@ -312,3 +312,32 @@ the class hierarchy. In plain English, this means you can have a polluted Plains
 without having to create a PollutedDiamondPlains object.
 
 Refer to the [decorator folder](decorator) for a code example.  
+
+## Facade Pattern
+
+### Intent
+* Provide a unified interface to a set of interfaces in a subsystem. Facade defines a higher-level interface that makes the subsystem easier to use.
+
+### Description
+As you work with subsystems (like web forums or gallery applications), you may find yourself making
+calls deep into the logic of the code. If the subsystem code is subject to change over time, and your code
+interacts with it at many different points, you may find yourself with a serious maintenance problem as the
+subsystem evolves.
+
+Similarly, when you build your own systems, it is a good idea to organize distinct parts into separate
+tiers. Typically, you may have a tier responsible for application logic, another for database interaction,
+another for presentation, and so on. You should aspire to keep these tiers as independent of one another as
+you can, so that a change in one area of your project will have minimal repercussions elsewhere. If code from
+one tier is tightly integrated into code from another, then this objective is hard to meet.
+
+A Facade is really a very simple concept. It is just a matter of creating a single point of entry for a tier or
+subsystem. This has a number of benefits. It helps to decouple distinct areas in a project from one another.
+It is useful and convenient for client coders to have access to simple methods that achieve clear ends. It
+reduces errors by focusing the use of a subsystem in one place; changes to the subsystem should cause
+failure in a predictable location. Errors are also minimized by Facade classes in complex subsystems where
+client code might otherwise use internal functions incorrectly.
+
+### Example
+Facade takes a "riddle wrapped in an enigma shrouded in mystery", and interjects a wrapper that tames the amorphous and inscrutable mass of software.
+![Facade](/images/Facade.png)
+![Facade_Example](/images/Facade_Example.png)
