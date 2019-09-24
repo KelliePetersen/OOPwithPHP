@@ -21,6 +21,9 @@ Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator,
 •	 **Prototype** - Using clone to generate objects, uses composition  
 •	 **Service Locator** - Asking your system for objects  
 •	 **Dependency Injection** - Letting your system give you objects  
+•	 **Composite** - Composing structures in which groups of objects can be used as if they were individual objects  
+•	 **Decorator** - A flexible mechanism for combining objects at runtime to extend functionality  
+•	 **Facade** - Creating a simple interface to complex or variable systems  
 
 
 ## Strategy Pattern
@@ -209,3 +212,65 @@ Dependency Injection offers purity, but it requires another kind of embedding. Y
 magic of the assembler. If you are already working within a framework which offers this functionality, there is
 no reason not to avail yourself of it. On the other hand, if you are rolling your own, or using components from various
 frameworks, you may wish to keep things simple and use the Service Locator pattern at the cost of some elegance.
+
+
+## Composite Pattern
+
+### Intent
+Compose objects into tree structures to represent whole-part hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly.
+
+### Problem
+Application needs to manipulate a hierarchical collection of "primitive" and "composite" objects. Processing of a primitive object is handled one way, and processing of a composite object is handled differently. Having to query the "type" of each object before attempting to process it is not desirable.
+
+### Description
+The Composite pattern is a simple way of aggregating and then managing groups of similar objects so
+that an individual object is indistinguishable to a client from a collection of objects. 
+Single entities can be treated in the same way as collections of things.
+
+The Composite pattern defines a single inheritance hierarchy that lays down two distinct sets of
+responsibilities.Classes in the pattern must support a common set of operations as their primary responsibility. 
+Classes must also support methods for adding and removing child objects.
+
+![Composite](/images/Composite.png)
+
+The Composite pattern is useful when you need to treat a collection of things in the same way as you
+would an individual. Composites are arranged in trees, so an operation on the whole can affect the parts, and data from
+the parts is transparently available via the whole. The Composite pattern makes such operations and queries
+transparent to the client. Trees are easy to traverse. It is easy to add new
+component types to Composite structures.
+
+### Advantages
+**Flexibility**: Because everything in the Composite pattern shares a common
+supertype, it is very easy to add new composite or leaf objects to the design without
+changing a program’s wider context.  
+
+**Simplicity**: A client using a Composite structure has a straightforward interface.
+There is no need for a client to distinguish between an object that is composed
+of others and a leaf object (except when adding new components).
+
+**Implicit reach**: Objects in the Composite pattern are organized in a tree. Each
+composite holds references to its children. An operation on a particular part of the
+tree, therefore, can have a wide effect. We might remove a single Army object from its
+Army parent and add it to another. This simple act is wrought on one object, but it has
+the effect of changing the status of the Army object’s referenced Unit objects and of
+their own children.
+
+**Explicit reach**: Tree structures are easy to traverse. They can be iterated in order
+to gain information or to perform transformations. 
+
+### Example
+Given broadly irreducible ingredients such as cereals and meat, we can make a food
+product — a sausage, for example. We then act on the result as a single entity. Just as we eat, cook, buy, or sell
+meat, we can eat, cook, buy, or sell the sausage that the meat in part composes. We might take the sausage
+and combine it with the other composite ingredients to make a pie, thereby rolling a composite into a larger
+composite. We behave in the same way to the collection as we do to the parts. 
+
+![Composite_Example](/images/Composite_Example.png)
+
+As you can see, all the units in this model extend the Unit class. A client can be sure, then, that any Unit
+object will support the bombardStrength() method. So, an Army can be treated in exactly the same way as an
+Archer. The Army and TroopCarrier classes are composites: they are designed to hold Unit objects. The Archer
+and LaserCannon classes are leaves, designed to support unit operations, but not to hold other Unit objects.
+The CompositeUnit gives the composites the ability to add/remove units. 
+
+Refer to the [composite folder](composite) for a code example.  
