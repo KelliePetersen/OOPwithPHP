@@ -24,7 +24,11 @@ Behavioral patterns are Chain of responsibility, Command, Interpreter, Iterator,
 •	 **Composite** - Composing structures in which groups of objects can be used as if they were individual objects  
 •	 **Decorator** - A flexible mechanism for combining objects at runtime to extend functionality  
 •	 **Facade** - Creating a simple interface to complex or variable systems  
-
+•	 **Interpreter** - Building a mini-language interpreter that can be used to create scriptable applications
+•	 **Observer** - Creating hooks for alerting disparate objects about system events
+•	 **Visitor** - Applying an operation to all the nodes in a tree of objects
+•	 **Command** - Creating command objects that can be saved and passed around
+•	 **Null Object** - Using non-operational objects in place of null values
 
 ## Strategy Pattern
 
