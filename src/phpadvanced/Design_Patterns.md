@@ -274,3 +274,41 @@ and LaserCannon classes are leaves, designed to support unit operations, but not
 The CompositeUnit gives the composites the ability to add/remove units. 
 
 Refer to the [composite folder](composite) for a code example.  
+
+## Decorator Pattern
+
+### Intent
+* Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+### Problem
+You want to add behavior or state to individual objects at run-time. Inheritance is not feasible because it is static and applies to an entire class.
+
+### Description
+While the Composite pattern helps us to create a flexible representation of aggregated components, the
+Decorator pattern uses a similar structure to help us to modify the functionality of concrete components.
+Once again, the key to this pattern lies in the importance of composition at runtime. Inheritance is a neat
+way of building on characteristics laid down by a parent class. This neatness can lead you to hard-code
+variation into your inheritance hierarchies, often causing inflexibility.
+
+Rather than use only inheritance to solve the problem of varying functionality, the Decorator pattern uses
+composition and delegation. In essence, Decorator classes hold an instance of another class of their own
+type. A Decorator will implement an operation so that it calls the same operation on the object to which it
+has a reference before (or after) performing its own actions. In this way, it is possible to build a pipeline of
+Decorator objects at runtime.
+
+Like the Composite pattern, Decorator can be confusing. It is important to remember that both composition
+and inheritance are coming into play at the same time. Because a decorator object forms a wrapper around a child object, it helps to keep the interface as
+sparse as possible. If you build a heavily featured base class, then decorators are forced to delegate to
+all public methods in their contained object. This can be done in the abstract decorator class, but it still
+introduces the kind of coupling that can lead to bugs.
+
+### Example
+![Decorator_Example](/images/Decorator_Example.png)
+
+This model is very extensible. You can add new decorators and components very easily. With lots of
+decorators, you can build very flexible structures at runtime. The component class, Plains in this case,
+can be significantly modified in many ways without the need to build the totality of the modifications into
+the class hierarchy. In plain English, this means you can have a polluted Plains object that has diamonds,
+without having to create a PollutedDiamondPlains object.
+
+Refer to the [decorator folder](decorator) for a code example.  
