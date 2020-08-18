@@ -1,3 +1,3 @@
-# PHP and MySQL Web Development  
+# OOP with PHP
 
-These are my small learning projects from the book.
+A collection of small learning projects from the book: **PHP and MySQL Web Development 5th Edition**.
